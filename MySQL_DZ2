@@ -1,0 +1,66 @@
+use gt200224;
+create table employees (
+employeeid int primary key auto_increment,
+fname varchar (128) not null,
+lastname varchar (128) not null,
+email varchar (128) not null,
+phone varchar (30) not null
+);
+ 
+ alter table employees
+ add column salary numeric (9,2);
+ 
+alter table employees
+modify column salary integer;
+
+alter table employees
+change column fname first_name varchar (128) not null;
+
+alter table employees
+drop column phone;
+
+alter table employees
+add column department varchar (128) not null;
+
+insert into employees (first_name, lastname, email, salary, department)
+values
+('Thomas', 'Anderson', 'thomas.anderson@matrix.com', 80000, 'IT'),
+('Sara', 'Connor', 'sarah.connor@terminator.com', 85000, 'Waitress'),
+('Maximus', 'Decimus', 'maximus.decimus@gladiator.com', 90000, 'General of the Armies'),
+('Peter', 'Parker', 'peter.parker@spiderman.com', 70000, 'Journalist'),
+('John', 'McClane', 'john.mcclane@diehard.com', 78000, 'Policeman'),
+('Walter', 'White', 'walter.white@breakingbad.com', 77700, 'Сhemistry teacher'),
+('John', 'Rico', 'johnnyrico@starshiptroopers.com', 65000, 'Lieutenant') ;
+
+////////////////////////////////////////////////////////////////////////////
+/////////SECOND TASK
+////////////////////////////////////////////////////////////////////////////
+
+use hr;
+
+select * from employees
+order by last_name;
+
+select *from employees
+order by salary desc;
+
+select * from employees
+where department_id in (60, 90, 110)
+order by last_name;
+
+select * from employees
+where first_name like 'D%'
+order by last_name
+limit 3;
+
+select * from employees
+order by salary
+limit 1;
+
+
+
+
+
+
+
+
